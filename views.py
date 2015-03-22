@@ -3,8 +3,6 @@ from django.shortcuts import render
 from mini_url.forms import MiniUrlForm
 
 
-# Create your views here.
-
 def add_mini(request):
     if request.method == 'POST' :
         form = MiniUrlForm(request.POST)
@@ -20,5 +18,5 @@ def add_mini(request):
         else: # Si ce n'est pas du POST, c'est probablement une requête GET
             form = MiniUrlForm()  # Nous créons un formulaire vide
 
-    return render(request, 'miniUrl/add_mini.html', locals())
+    return render(request, 'mini_url/add_mini.html', locals())
 
