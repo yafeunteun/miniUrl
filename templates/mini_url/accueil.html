@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<h1>Raccourcisseur d'URLs</h1>
+
+<p><a href="{% url "mini_url.views.add_mini" %}">Raccourcir une URL</a></p>
+
+Liste des URLs raccourcies :
+
+<ul>
+{% for url_t in url_all %}
+<li><div class="url">
+        <p>{{ url_t.urlLong }} via <a href="{% url "mini_url.views.redir" url_t.code %}">http://localhost:8000/m/{{ url_t.code }}</a> ({{url_t.nbAccess}} accès)</p>
+    </div></li>
+{% empty %}
+
+    <p>Aucun article.</p>
+
+{% endfor %}
+</ul>
+</body>
+</html>
